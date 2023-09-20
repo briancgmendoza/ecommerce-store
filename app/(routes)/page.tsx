@@ -1,7 +1,7 @@
 import Container from "@/components/ui/container";
 import Billboard from "@/components/billboard";
 import ProductList from "@/components/product-list";
-import getBillboards from "@/actions/get-billboard";
+import getBillboards from "@/actions/get-billboards";
 import getProducts from "@/actions/get-products";
 
 export const revalidate = 0;
