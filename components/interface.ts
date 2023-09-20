@@ -12,3 +12,7 @@ export interface IProductListProps {
     title: string;
     items: IProduct[];
 }
+
+export interface IInfoProps {
+    data: IProduct;
+}

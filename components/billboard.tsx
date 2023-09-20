@@ -38,7 +38,7 @@ const Billboard: React.FC<IBillboardProps> = ({
                             max-w-xs
                         "
                     >
-                        {data.label}
+                        {data?.label}
                     </div>
                 </div>
             </div>

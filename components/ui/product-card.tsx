@@ -7,12 +7,20 @@ import IconButton from "@/components/ui/icon-button";
 import Currency from "@/components/ui/currency";
 
 import { IProductCardProps } from "./interface";
+import { useRouter } from "next/navigation";
 
 const ProductCard: React.FC<IProductCardProps> = ({
     data
 }: IProductCardProps) => {
+    const router = useRouter();
+
+    const handleClick = () => {
+        router.push(`/product/${data?.id}`);
+    };
+
     return (
         <div
+            onClick={handleClick}
             className="
                 bg-white
                 group
