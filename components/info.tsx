@@ -4,10 +4,19 @@ import Button from "./ui/button";
 import Currency from "./ui/currency";
 
 import { IInfoProps } from "./interface";
+import useCart from "@/hooks/use-cart";
 
 const Info: React.FC<IInfoProps> = ({
     data
 }: IInfoProps) => {
+    const cart = useCart();
+
+    const onAddToCart: React.MouseEventHandler<HTMLButtonElement> = (event) => {
+        event.stopPropagation();
+
+        cart.addItem(data);
+    };
+
     return (
         <>
             <h1 className="text-3xl font-bold text-gray-900">{data.name}</h1>
@@ -38,7 +47,10 @@ const Info: React.FC<IInfoProps> = ({
                     />
                 </div>
                 <div className="mt-10 flex items-center gap-x-3">
-                    <Button className="flex items-center gap-x-2">
+                    <Button
+                        className="flex items-center gap-x-2"
+                        onClick={onAddToCart}
+                    >
                         Add to cart
                         <ShoppingCart />
                     </Button>

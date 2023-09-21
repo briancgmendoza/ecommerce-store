@@ -13,13 +13,13 @@ export interface IProductCardProps {
 }
 
 export interface IIconButtonProps {
-    onClick?: MouseEventHandler<HTMLButtonElement> | undefined;
+    onClick?: MouseEventHandler<HTMLButtonElement>;
     className?: string;
     icon: React.ReactElement;
 }
 
 export interface ICurrencyProps {
-    value: string;
+    value: string | number;
 }
 
 export interface IModalProps {
