@@ -21,3 +21,9 @@ export interface IIconButtonProps {
 export interface ICurrencyProps {
     value: string;
 }
+
+export interface IModalProps {
+    open: boolean;
+    onClose: () => void;
+    children: React.ReactNode;
+}

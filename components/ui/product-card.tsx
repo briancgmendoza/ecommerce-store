@@ -8,16 +8,23 @@ import Currency from "@/components/ui/currency";
 
 import { IProductCardProps } from "./interface";
 import { useRouter } from "next/navigation";
+import usePreviewModal from "@/hooks/use-preview-modal";
 
 const ProductCard: React.FC<IProductCardProps> = ({
     data
 }: IProductCardProps) => {
     const router = useRouter();
+    const previewModal = usePreviewModal();
 
     const handleClick = () => {
         router.push(`/product/${data?.id}`);
     };
 
+    const onPreview: React.MouseEventHandler<HTMLButtonElement> = (event) => {
+        event.stopPropagation();
+
+        previewModal.onOpen(data);
+    };
     return (
         <div
             onClick={handleClick}
@@ -58,7 +65,7 @@ const ProductCard: React.FC<IProductCardProps> = ({
                 >
                     <div className="flex gap-x-6 justify-center">
                         <IconButton
-                            onClick={() => { }}
+                            onClick={onPreview}
                             className=""
                             icon={
                                 <Expand size={20} className="text-gray-600" />
